@@ -1,0 +1,26 @@
+
+
+
+FROM ubuntu:18.04
+
+RUN apt update \
+&& apt install -y python3-pip nano wget curl net-tools jq \
+&& pip3 install flask  \
+&& mkdir -p /myspace/ \
+&& cd /myspace/
+
+COPY . /myspace/
+
+# ln -s $(which python3) /bin/python
+
+# set a health check
+#HEALTHCHECK --interval=5s \
+#            --timeout=5s \
+#            CMD curl -f http://127.0.0.1:8000 || exit 1
+
+
+
+EXPOSE 5000
+
+
+CMD ["python3", "-m", "flask", "run"]

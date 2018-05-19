@@ -9,3 +9,5 @@ def hello_world():
 	return 'hello world'
 
 
+if "__main__" == __name__:
+	myapp.run(debug=False, host='0.0.0.0')
