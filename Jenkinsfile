@@ -24,7 +24,7 @@ node {
         // Good practice to tag the image twice, Once as 'latest' 
         // and another one as '_put_jenkins_build_number_here'
         docker.withRegistry('https://registry.hub.docker.com', 'cred-id-dockerhub') {
-            app.push("${env.BUILD_NUMBER}")
+            app.push("build_${env.BUILD_NUMBER}")
             app.push("latest")
         }
     }
